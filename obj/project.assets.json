@@ -63,22 +63,6 @@
           }
         }
       },
-      "MonoGame.Extended.Particles/3.9.0-alpha0107": {
-        "type": "package",
-        "dependencies": {
-          "MonoGame.Extended": "3.9.0-alpha0107"
-        },
-        "compile": {
-          "lib/net6.0/MonoGame.Extended.Particles.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/MonoGame.Extended.Particles.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "MonoGame.Extended.Tiled/3.9.0-alpha0107": {
         "type": "package",
         "dependencies": {
@@ -229,18 +213,6 @@
         "monogame.extended.graphics.nuspec"
       ]
     },
-    "MonoGame.Extended.Particles/3.9.0-alpha0107": {
-      "sha512": "IZ0AUTQp07x1C6hz1L4sAItRh5XFt87s/9PNXXGPgwq7444f56feEkzN/oDjA7LdJe96mG3YMzOgcSpz8xTMmw==",
-      "type": "package",
-      "path": "monogame.extended.particles/3.9.0-alpha0107",
-      "files": [
-        ".nupkg.metadata",
-        "lib/net6.0/MonoGame.Extended.Particles.dll",
-        "lib/net6.0/MonoGame.Extended.Particles.xml",
-        "monogame.extended.particles.3.9.0-alpha0107.nupkg.sha512",
-        "monogame.extended.particles.nuspec"
-      ]
-    },
     "MonoGame.Extended.Tiled/3.9.0-alpha0107": {
       "sha512": "I/tCAbDAKmfmOtw/wXC1PKYOpUZW0ONyAvgEfCeFM+F/fM7n0C3VT0/6cJSu+4vVMx0HnB74bavcP0dV+aUZew==",
       "type": "package",
@@ -307,29 +279,28 @@
       "MonoGame.Content.Builder.Task >= 3.8.1.303",
       "MonoGame.Extended >= 3.9.0-alpha0107",
       "MonoGame.Extended.Content.Pipeline >= 3.9.0-alpha0107",
-      "MonoGame.Extended.Particles >= 3.9.0-alpha0107",
       "MonoGame.Extended.Tiled >= 3.9.0-alpha0107",
       "MonoGame.Framework.DesktopGL >= 3.8.1.303"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pro\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pro\\Desktop\\mmls\\Y3S1\\Game Algorithm\\GameAlgoProject\\GameAlgoProject.csproj",
-      "projectName": "GameAlgoProject",
-      "projectPath": "C:\\Users\\Pro\\Desktop\\mmls\\Y3S1\\Game Algorithm\\GameAlgoProject\\GameAlgoProject.csproj",
-      "packagesPath": "C:\\Users\\Pro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pro\\Desktop\\mmls\\Y3S1\\Game Algorithm\\GameAlgoProject\\obj\\",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\MuhammadLutfiBinMohdIzzat\\PacmanGame.csproj",
+      "projectName": "PacmanGame",
+      "projectPath": "C:\\Users\\User\\source\\repos\\MuhammadLutfiBinMohdIzzat\\PacmanGame.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\MuhammadLutfiBinMohdIzzat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -338,7 +309,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://www.myget.org/F/lithiumtoast/api/v3/index.json": {}
       },
@@ -370,10 +340,6 @@
             "target": "Package",
             "version": "[3.9.0-alpha0107, )"
           },
-          "MonoGame.Extended.Particles": {
-            "target": "Package",
-            "version": "[3.9.0-alpha0107, )"
-          },
           "MonoGame.Extended.Tiled": {
             "target": "Package",
             "version": "[3.9.0-alpha0107, )"
@@ -399,7 +365,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

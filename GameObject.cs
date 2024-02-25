@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace GameAlgoProject
+namespace GameAlgoT2310
 {
     public class GameObject
     {

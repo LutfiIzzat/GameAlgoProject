@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/User/source/repos/Pacman/Pacman/Content/pacman-wall-24.tsx</SourceFile>
+  <SourceTime>2024-01-26T21:05:17.4331421+08:00</SourceTime>
+  <DestFile>C:/Users/User/source/repos/PacmanGame/Content/bin/DesktopGL/Content/../../Pacman/Pacman/Content/pacman-wall-24_0.xnb</DestFile>
+  <DestTime>2024-01-27T15:03:27.0133439+08:00</DestTime>
+  <Importer>TiledMapTilesetImporter</Importer>
+  <ImporterTime>2023-09-15T01:15:36+08:00</ImporterTime>
+  <Processor>TiledMapTilesetProcessor</Processor>
+  <ProcessorTime>2023-09-15T01:15:36+08:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset>
+    <string>C:/Users/User/source/repos/PacmanGame/Content/bin/DesktopGL/Content/../../Pacman/Pacman/Content/pacman-wall-24_1.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>

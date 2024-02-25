@@ -3,11 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Renderers;
+using Pacman;
 using PacmanGame;
 using System;
 using System.Diagnostics;
+using System.Xml.Linq;
 
-namespace GameAlgoProject
+namespace GameAlgoT2310
 {
     public class GameEngine : Game
     {
@@ -41,8 +43,8 @@ namespace GameAlgoProject
             LoadContent();
 
             // Set back buffer
-            Graphics.PreferredBackBufferWidth = 720;
-            Graphics.PreferredBackBufferHeight = 730;
+            Graphics.PreferredBackBufferWidth = 768;
+            Graphics.PreferredBackBufferHeight = 768;
             Graphics.ApplyChanges();
 
             // Construct game objects here.           
@@ -59,6 +61,7 @@ namespace GameAlgoProject
 
             // [Optional] Pre-load all assets here (e.g. textures, sprite font, etc.)
             // e.g. Content.Load<Texture2D>("texture-name")
+
         }
 
         protected override void Update(GameTime gameTime)

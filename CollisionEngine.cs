@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace GameAlgoProject
+namespace GameAlgoT2310
 {
     public class CollisionEngine
     {

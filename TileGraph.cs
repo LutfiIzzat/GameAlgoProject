@@ -15,22 +15,20 @@ namespace PacmanGame
 
         public TileGraph()
         {
-            /********************************************************************************
-                PROBLEM 1 : Initialize Nodes and Connections using their respective 
-                            default constructors.
+        /********************************************************************************
+            PROBLEM 1 : Initialize Nodes and Connections using their respective 
+                        default constructors.
 
-                HOWTOSOLVE : 1. Copy the code below.
-                             2. Paste it below this block comment.
-                             3. Fill in the blanks.
+            HOWTOSOLVE : 1. Copy the code below.
+                         2. Paste it below this block comment.
+                         3. Fill in the blanks.
 
-                Nodes = ________;
-                Connections = ________;
-            ********************************************************************************/
-
+            Nodes = ________;
+            Connections = ________;
+        ********************************************************************************/
+            
             Nodes = new HashSet<Tile>();
             Connections = new Dictionary<Tile, ulong[]>();
-
-
         }
 
         public void CreateFromTiledMapTileLayer(TiledMapTileLayer foodLayer, ushort colStart, ushort rowStart)
@@ -52,11 +50,12 @@ namespace PacmanGame
                 else
                 {
                     throw new Exception($"[TileGraph]: Error: No tile found in (Col = {colStart}, Row = {rowStart}).");
+
                 }
             ********************************************************************************/
 
             bool hasTile = foodLayer.TryGetTile(colStart, rowStart, out TiledMapTile? tile);
-           
+
             if (hasTile && !tile.Value.IsBlank)
             {
                 BFSConstructGraph(foodLayer, colStart, rowStart);
@@ -65,8 +64,9 @@ namespace PacmanGame
             {
                 throw new Exception($"[TileGraph]: Error: No tile found in (Col = {colStart}, Row = {rowStart}).");
             }
-        }
 
+
+        }
 
         private void BFSConstructGraph(TiledMapTileLayer foodLayer, ushort colStart, ushort rowStart)
         {
@@ -75,19 +75,19 @@ namespace PacmanGame
             ulong[]  Cost      = { 2,  1,  2,  1, 1,  2,  1,  2}; // Diagonal = 2, Non-Diagonal = 1
             int[]    Direction = { 1,  3,  4,  6}; // (Up = 1, Left = 3, Right = 4, Down = 6)
 
-            /********************************************************************************
-                PROBLEM 3(a) : Construct the start tile with the right arguments.
+        /********************************************************************************
+            PROBLEM 3(a) : Construct the start tile with the right arguments.
 
-                HOWTOSOLVE : 1. Copy the code below.
-                                2. Paste it below this block comment.
-                                3. Fill in the blanks.
+            HOWTOSOLVE : 1. Copy the code below.
+                            2. Paste it below this block comment.
+                            3. Fill in the blanks.
 
-                Tile startTile = ________;
-                Nodes.Add(________);
-            ********************************************************************************/
-
+            Tile startTile = ________;
+            Nodes.Add(________);
+        ********************************************************************************/
             Tile startTile = new Tile(colStart, rowStart);
             Nodes.Add(startTile);
+
 
 
             /********************************************************************************
@@ -102,7 +102,7 @@ namespace PacmanGame
                 queue.Enqueue(________);
             ********************************************************************************/
 
-            Queue<Tile> queue = new Queue<Tile>();
+            Queue<Tile> queue = new Queue<Tile>() ;
             queue.Enqueue(startTile);
 
 
