@@ -12,11 +12,18 @@ namespace ZombieGame
 {
     public class FlyingEnemy : Enemy
     {
+        private Player _player;
+        public Random random = new Random();
+
+        public FlyingEnemy(string name) : base(name) 
+        { 
+        }
         public override void Initialize()
         {
             LoadContent();
             Speed = 0f;
             MaxSpeed = 100.0f;
+            Health = 1f;
         }
 
         protected override void LoadContent()
@@ -28,6 +35,7 @@ namespace ZombieGame
 
         public override void Start()
         {
+            _player = (Player)GameObjectCollection.FindByName("Player");
             GameMap gameMap = (GameMap)GameObjectCollection.FindByName("GameMap");
             tiledMap = gameMap.TiledMap;
             tileGraph = gameMap.TileGraph;
@@ -36,10 +44,17 @@ namespace ZombieGame
             Animation.OriginNormalized = Vector2.Zero;
             Animation.Play("ghostEvade");
             Animation.Update(0);
-            Tile startTile = new Tile(gameMap.StartColumn, gameMap.StartRow);
-            Position = Tile.ToPosition(startTile, tiledMap.TileWidth, tiledMap.TileHeight);
-            FSM = new NavigationHCFSM(_game, this, tiledMap, tileGraph);
-            FSM.Initialize();
+            Position = new Vector2(0, 0);
+        }
+
+        public override void Update()
+        {
+            if (_player != null)
+            {
+                Vector2 direction = Vector2.Normalize(_player.Position - Position);
+
+                Position += direction * MaxSpeed * ScalableGameTime.DeltaTime;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Input;
 
 namespace ZombieGame
 {
@@ -32,7 +33,6 @@ namespace ZombieGame
 
             // Get the Food layer from the tiled map
             TiledMapTileLayer foodLayer = TiledMap.GetLayer<TiledMapTileLayer>("Food");
-            TiledMapTileLayer waypointsLayer = TiledMap.GetLayer<TiledMapTileLayer>("Waypoints");
 
             /********************************************************************************
                 PROBLEM 4 : Construct tile graph from the food layer.
@@ -42,16 +42,14 @@ namespace ZombieGame
                 TileGraph = new TileGraph();
                 TileGraph.CreateFromTiledMapTileLayer(foodLayer, StartColumn, StartRow);
             ********************************************************************************/
-
             TileGraph = new TileGraph();
             TileGraph.CreateFromTiledMapTileLayer(foodLayer, StartColumn, StartRow);
-            //TileGraph.CreateFromTiledMapTileLayer(waypointsLayer, StartColumn, StartRow);
+
         }
 
         protected override void LoadContent()
         {
-            //TiledMap = _game.Content.Load<TiledMap>("pacman-with-home");
-            TiledMap = _game.Content.Load<TiledMap>("map");
+            TiledMap = _game.Content.Load<TiledMap>("Project");
         }
 
         public override void Update()

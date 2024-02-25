@@ -4,17 +4,23 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/animations.sf</File>
-    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/map.tmx</File>
-    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman_map.tmx</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/Assignment2.tmx</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/bullet1.png</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/graph-directions.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-sprites.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-tileset.tsx</File>
-    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-tileset1.tsx</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-wall-24.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-with-home.tmx</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/path.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/Project.tmx</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/Soldier.png</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/survivor-idle_handgun_0.png</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/Top_Down_Survivor/handgun/idle/survivor-idle_handgun_0.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

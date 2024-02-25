@@ -14,25 +14,28 @@ namespace ZombieGame
     public class EnemyFactory
     {
         private Random _random;
+        private int _enemyCount;
 
         public EnemyFactory()
         {
             _random = new Random();
+            _enemyCount = 0;
         }
 
         public GameObject CreateRandomEnemy()
         {
+            _enemyCount++;
             int randomNumber = _random.Next(3);
-            EnemyType randomEnemyType = (EnemyType)randomNumber;
+            EnemyType randomEnemyType = (EnemyType)1;
 
             switch (randomEnemyType)
             {
                 case EnemyType.Normal:
-                    return new NormalEnemy();
+                    return new NormalEnemy($"NormalEnemy{_enemyCount}");
                 case EnemyType.Giant:
-                    return new GiantEnemy();
+                    return new GiantEnemy($"GiantEnemy{_enemyCount}");
                 case EnemyType.Flying:
-                    return new FlyingEnemy();
+                    return new FlyingEnemy($"FlyingEnemy{_enemyCount}");
                 default:
                     throw new ArgumentOutOfRangeException();
             }

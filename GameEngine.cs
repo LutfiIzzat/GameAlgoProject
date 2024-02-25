@@ -6,6 +6,7 @@ using MonoGame.Extended.Tiled.Renderers;
 using ZombieGame;
 using System;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace GameAlgoProject
 {
@@ -17,7 +18,12 @@ namespace GameAlgoProject
 
         // Engine Related
         public CollisionEngine CollisionEngine;
+        public EnemyFactory EnemyFactory;
         public Random Random;
+        private int _enemyCount;
+        private float _spawnTimer;
+        private const float SpawnInterval = 3f;
+        private const int MaxEnemies = 20;
 
         public GameEngine()
         {
@@ -34,6 +40,7 @@ namespace GameAlgoProject
 
             // Initialize Scalable Game Time
             ScalableGameTime.TimeScale = 1f;
+            EnemyFactory = new EnemyFactory();
         } 
 
         protected override void Initialize()
@@ -41,16 +48,17 @@ namespace GameAlgoProject
             LoadContent();
 
             // Set back buffer
-            Graphics.PreferredBackBufferWidth = 720;
-            Graphics.PreferredBackBufferHeight = 730;
+            Graphics.PreferredBackBufferWidth = 768;
+            Graphics.PreferredBackBufferHeight = 768;
             Graphics.ApplyChanges();
 
             // Construct game objects here.           
             // CreatePacmanWorld();
             PacmanScene scene = new PacmanScene();
-            EnemyFactory enemyFactory = new EnemyFactory();
-            Enemy randomEnemy = (Enemy)enemyFactory.CreateRandomEnemy();
-
+            Player player = new Player();
+ 
+            _enemyCount = 0;
+            _spawnTimer = 0f;
             // Initialize all game objects
             GameObjectCollection.Initialize();
         }
@@ -61,6 +69,7 @@ namespace GameAlgoProject
 
             // [Optional] Pre-load all assets here (e.g. textures, sprite font, etc.)
             // e.g. Content.Load<Texture2D>("texture-name")
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -71,6 +80,14 @@ namespace GameAlgoProject
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            _spawnTimer += ScalableGameTime.DeltaTime;
+            if (_enemyCount < 20 && _spawnTimer >= SpawnInterval)
+            {
+                _spawnTimer = 0f;
+                Enemy randomEnemy = (Enemy)EnemyFactory.CreateRandomEnemy();
+                _enemyCount++;
+                GameObjectCollection.Add(randomEnemy);
+            }
             // Update Game Objects
             GameObjectCollection.Update();
 

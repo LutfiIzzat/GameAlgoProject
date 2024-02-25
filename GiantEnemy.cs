@@ -12,11 +12,16 @@ namespace ZombieGame
 {
     public class GiantEnemy : Enemy
     {
+        public GiantEnemy(string name) : base(name) 
+        {
+        }
+
         public override void Initialize()
         {
             LoadContent();
             Speed = 0f;
             MaxSpeed = 50.0f;
+            Health = 5f;
         }
 
         protected override void LoadContent()

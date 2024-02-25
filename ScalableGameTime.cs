@@ -40,5 +40,10 @@ namespace GameAlgoProject
             GameTime.ElapsedGameTime = TimeSpan.FromSeconds(DeltaTime);
             GameTime.TotalGameTime = TimeSpan.FromSeconds(RealTime);
         }
+
+        public static float TotalMilliseconds()
+        {
+            return RealTime * 1000f;
+        }
     }
 }

@@ -39,3 +39,10 @@ C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\obj\Debug\net6.0\G
 C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\obj\Debug\net6.0\ref\GameAlgoProject.dll
 C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\animations.xnb
 C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Project.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Assignment2.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\bullet1.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\graph-directions.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\path.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Soldier.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\survivor-idle_handgun_0.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_0.xnb

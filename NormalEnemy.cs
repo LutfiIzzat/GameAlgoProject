@@ -12,7 +12,7 @@ namespace ZombieGame
 {
     public class NormalEnemy : Enemy
     {
-        public NormalEnemy() : base()
+        public NormalEnemy(string name) : base(name)
         {
 
         }
@@ -22,6 +22,8 @@ namespace ZombieGame
             LoadContent();
             Speed = 0f;
             MaxSpeed = 100.0f;
+            Health = 3f;
+            
         }
 
         protected override void LoadContent()

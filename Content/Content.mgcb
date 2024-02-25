@@ -14,21 +14,39 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin animations.sf
-/importer:SpriteFactoryContentImporter
-/processor:SpriteFactoryContentProcessor
-/processorParam:ContentType=MonoGame.Extended MonoGame.Extended.Animations.SpriteFactory.SpriteFactoryFileReader, MonoGame.Extended.Animations
-/build:animations.sf
-
-#begin map.tmx
+#begin Assignment2.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
-/build:map.tmx
+/build:Assignment2.tmx
 
-#begin pacman_map.tmx
+#begin Assignment2.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
-/build:pacman_map.tmx
+/build:Assignment2.tmx
+
+#begin bullet1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bullet1.png
+
+#begin graph-directions.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graph-directions.png
 
 #begin pacman-sprites.png
 /importer:TextureImporter
@@ -47,11 +65,6 @@
 /processor:TiledMapTilesetProcessor
 /build:pacman-tileset.tsx
 
-#begin pacman-tileset1.tsx
-/importer:TiledMapTilesetImporter
-/processor:TiledMapTilesetProcessor
-/build:pacman-tileset1.tsx
-
 #begin pacman-wall-24.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -69,8 +82,56 @@
 /processor:TiledMapProcessor
 /build:pacman-with-home.tmx
 
+#begin path.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:path.png
+
 #begin Project.tmx
 /importer:TiledMapImporter
 /processor:TiledMapProcessor
 /build:Project.tmx
+
+#begin Soldier.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Soldier.png
+
+#begin survivor-idle_handgun_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:survivor-idle_handgun_0.png
+
+#begin Top_Down_Survivor/handgun/idle/survivor-idle_handgun_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Top_Down_Survivor/handgun/idle/survivor-idle_handgun_0.png
 

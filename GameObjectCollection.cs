@@ -88,7 +88,7 @@ namespace GameAlgoProject
                 // Execute object added handlers for objects added to collection
                 ObjectAdded?.Invoke(gameObject);
             }
-             
+
             if (!isObjectAdded)
             {
                 throw new Exception($"Attempt to add duplicated object named {gameObject.Name}");

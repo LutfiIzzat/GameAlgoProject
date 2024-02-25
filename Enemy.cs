@@ -21,12 +21,13 @@ namespace ZombieGame
         public Texture2D Texture;
         public SpriteSheet SpriteSheet;
         public AnimatedSprite Animation;
+        public float Health;
 
         // Visual appearance
         public TiledMap tiledMap;
         public TileGraph tileGraph;
 
-        public Enemy() : base()
+        public Enemy(string name) : base()
         {
         }
 

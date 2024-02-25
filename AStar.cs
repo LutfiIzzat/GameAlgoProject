@@ -1,6 +1,8 @@
-﻿using MonoGame.Extended.Tiled;
+﻿using Autofac.Core.Lifetime;
+using MonoGame.Extended.Tiled;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ZombieGame
@@ -67,9 +69,11 @@ namespace ZombieGame
                 astarNodeDictionary[start] = new AStarData(start, ________, heuristic(________, end));
 
             ********************************************************************************/
-            foreach (Tile node in graph.Nodes)
-                astarNodeDictionary.Add(node, new AStarData(node, ulong.MaxValue, heuristic(node, end)));
+
+            foreach (Tile node in graph.Nodes )
+                astarNodeDictionary.Add(node, new AStarData(node, ulong.MaxValue, heuristic(start, end)));
             astarNodeDictionary[start] = new AStarData(start, 0, heuristic(start, end));
+
 
 
             // Priority Queue for deciding which node to process
@@ -105,9 +109,9 @@ namespace ZombieGame
                         break;
                 ********************************************************************************/
 
+
                 if (curData.self == end)
                     break;
-
 
                 // Get the weights to all neighbours of current node
                 ulong[] weights = graph.Connections[curData.self];
@@ -204,8 +208,8 @@ namespace ZombieGame
             }
             path.AddFirst(start);
 
-
             return path;
+
         }
     }
 }
