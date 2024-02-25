@@ -67,7 +67,7 @@ namespace ZombieGame
             LoadContent();
             scale = 0.25f;
             Origin = new(Texture.Width / 2 * scale, Texture.Height / 2 * scale);
-            MaxSpeed = 90.0f;
+            MaxSpeed = 150.0f;
             _bound.Width = (int)(Texture.Width * scale);
             _bound.Height = (int)(Texture.Height * scale);
             _bound.Location = Position.ToPoint();
@@ -188,6 +188,10 @@ namespace ZombieGame
 
             int tileWidth = _tiledMap.TileWidth;
             int tileHeight = _tiledMap.TileHeight;
+
+            Vector2 playerPosition = _player.Position;
+            Vector2 offset = playerPosition - Position;
+            Orientation = (float)Math.Atan2(offset.Y, offset.X);
 
 
             if (_player != null)

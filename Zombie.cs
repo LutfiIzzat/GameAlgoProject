@@ -174,7 +174,7 @@ namespace ZombieGame
             // Initialize Source Tile
             // use first waypointList position for initial position
 
-            var InitialTile = (Tuple<float, float>)waypointsList[0];
+            var InitialTile = (Tuple<float, float>)waypointsList[3];
 
             /*            int X = Convert.ToInt32(InitialTile.Item1 / _tiledMap.TileWidth);
                         int Y = Convert.ToInt32(InitialTile.Item2 /  _tiledMap.TileHeight);
@@ -198,7 +198,9 @@ namespace ZombieGame
             int tileWidth = _tiledMap.TileWidth;
             int tileHeight = _tiledMap.TileHeight;
 
-
+            Vector2 playerPosition = _player.Position;
+            Vector2 offset = playerPosition - Position;
+            Orientation = (float)Math.Atan2(offset.Y, offset.X);
 
             // Implement Hard-Coded FSM for movement behaviour
             if (_currentState == NavigationState.STOP)

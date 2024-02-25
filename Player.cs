@@ -45,7 +45,7 @@ namespace ZombieGame
         public int firingRate = 5;
         public const float CoolingTime = 2f;
         public float LastFiredTime = 0f;
-        public float AttackedInterval = 1f;
+        public float AttackedInterval = 1.5f;
         public float AttackCooldown = 1f;
         private Rectangle _bound;
         public float Health;
@@ -66,13 +66,14 @@ namespace ZombieGame
         {
         }
 
+
         public override void Initialize()
         {
             LoadContent();
 
             MaxSpeed = 100.0f;
             scale = 0.3f;
-            Health = 5f;
+            Health = 3f;
             Origin = new (Texture.Width/2, Texture.Height/2);
             LastFiredTime = 0f;
             _bound.Width = (int)(Texture.Width * 0.25);
@@ -254,8 +255,58 @@ namespace ZombieGame
                 {
                     Health -= 1;
                     AttackCooldown = AttackedInterval;
+                    foreach (var gameObject in GameObjectCollection.FindObjectsByType(typeof(PlayerHeart)))
+                    {
+                        if (gameObject is PlayerHeart)
+                        {
+                            ((PlayerHeart)gameObject).DeductHeart();
+                        }
+                    }
+                }
+                if (Health <= 0)
+                {
+                    _game.Exit();
                 }
             }
+            if (collisionInfo.Other is GiantEnemy)
+            {
+                if (AttackCooldown <= 0)
+                {
+                    Health -= 1;
+                    AttackCooldown = AttackedInterval;
+                    foreach (var gameObject in GameObjectCollection.FindObjectsByType(typeof(PlayerHeart)))
+                    {
+                        if (gameObject is PlayerHeart)
+                        {
+                            ((PlayerHeart)gameObject).DeductHeart();
+                        }
+                    }
+                }
+                if (Health <= 0)
+                {
+                    _game.Exit();
+                }
+            }
+            if (collisionInfo.Other is FlyingEnemy)
+            {
+                if (AttackCooldown <= 0)
+                {
+                    Health -= 1;
+                    AttackCooldown = AttackedInterval;
+                    foreach (var gameObject in GameObjectCollection.FindObjectsByType(typeof(PlayerHeart)))
+                    {
+                        if (gameObject is PlayerHeart)
+                        {
+                            ((PlayerHeart)gameObject).DeductHeart();
+                        }
+                    }
+                }
+                if (Health <= 0)
+                {
+                    _game.Exit();
+                }
+            }
+
         }
 
 
