@@ -14,10 +14,10 @@ namespace PacmanGame
             // PathfindingTester pathfindingTester = new PathfindingTester();
 
             // Ghost
-            Ghost ghost = new Ghost();
+            //Ghost ghost = new Ghost();
 
 			// Pac Man
-            PacMan pacman = new PacMan();
+            //PacMan pacman = new PacMan();
         }
     }
 }
