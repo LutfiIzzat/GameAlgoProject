@@ -20,8 +20,10 @@ namespace Pacman
             //PathfindingTester pathfindingTester = new PathfindingTester("yaur");
 
             // Ghost
-            Ghost ghost = new Ghost();
+            //Ghost ghost = new Ghost();
             Player player = new Player();
+            Zombie zombie = new Zombie(player);
+
         }
     }
 }

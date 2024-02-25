@@ -94,6 +94,11 @@
 /processor:TiledMapProcessor
 /build:Project.tmx
 
+#begin Project.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Project.tmx
+
 #begin Soldier.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -129,4 +134,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Top_Down_Survivor/handgun/idle/survivor-idle_handgun_0.png
+
+#begin Zombie.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Zombie.png
 

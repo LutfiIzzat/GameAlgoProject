@@ -290,11 +290,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\MuhammadLutfiBinMohdIzzat\\PacmanGame.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\GameAlgoProject\\GameAlgoProjectgit\\PacmanGame.csproj",
       "projectName": "PacmanGame",
-      "projectPath": "C:\\Users\\User\\source\\repos\\MuhammadLutfiBinMohdIzzat\\PacmanGame.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\GameAlgoProject\\GameAlgoProjectgit\\PacmanGame.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\MuhammadLutfiBinMohdIzzat\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\GameAlgoProject\\GameAlgoProjectgit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/User/source/repos/MuhammadLutfiBinMohdIzzat/Content/Project.tmx</SourceFile>
-  <SourceTime>2024-02-25T04:44:16.1107519+08:00</SourceTime>
-  <DestFile>C:/Users/User/source/repos/MuhammadLutfiBinMohdIzzat/Content/bin/DesktopGL/Project.xnb</DestFile>
-  <DestTime>2024-02-25T04:44:59.8655332+08:00</DestTime>
+  <SourceFile>C:/Users/User/Desktop/GameAlgoProject/GameAlgoProjectgit/Content/Project.tmx</SourceFile>
+  <SourceTime>2024-02-25T16:12:05.3730177+08:00</SourceTime>
+  <DestFile>C:/Users/User/Desktop/GameAlgoProject/GameAlgoProjectgit/Content/bin/DesktopGL/Project.xnb</DestFile>
+  <DestTime>2024-02-25T16:13:24.5795715+08:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2023-09-15T01:15:36+08:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>
   <ProcessorTime>2023-09-15T01:15:36+08:00</ProcessorTime>
   <Dependencies />
   <BuildAsset>
-    <string>C:/Users/User/source/repos/MuhammadLutfiBinMohdIzzat/Content/bin/DesktopGL/pacman-tileset.xnb</string>
+    <string>C:/Users/User/Desktop/GameAlgoProject/GameAlgoProjectgit/Content/bin/DesktopGL/pacman-tileset.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>

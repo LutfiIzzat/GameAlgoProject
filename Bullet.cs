@@ -31,10 +31,12 @@ namespace PacmanGame
         {
             LoadContent();
             Origin = new(Texture.Width / 2f, Texture.Height / 2f);
+            Orientation = ParentObject.Orientation;
+            direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
 
-            Vector2 mousePosition = Mouse.GetState().Position.ToVector2();
+/*            Vector2 mousePosition = Mouse.GetState().Position.ToVector2();
             Vector2 offset = mousePosition - Position;
-            Orientation = (float)Math.Atan2(offset.Y, offset.X);
+            Orientation = (float)Math.Atan2(offset.Y, offset.X);*/
 
             Speed = 100f;
         }
@@ -47,7 +49,7 @@ namespace PacmanGame
 
         public override void Update()
         {
-            Vector2 direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
+            //direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
             Velocity = direction * Speed;
             Position += Velocity * ScalableGameTime.DeltaTime;
         }
