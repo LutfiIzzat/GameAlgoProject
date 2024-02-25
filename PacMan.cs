@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PacmanGame
+namespace ZombieGame
 {
     public class PacMan : GameObject
     {

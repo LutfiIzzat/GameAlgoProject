@@ -1,5 +1,5 @@
 ﻿
-namespace PacmanGame
+namespace ZombieGame
 {
     public class PacmanScene
     {

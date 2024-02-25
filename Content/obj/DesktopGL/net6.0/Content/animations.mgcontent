@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/animations.sf</SourceFile>
+  <SourceTime>2024-02-25T12:40:57.9699767+08:00</SourceTime>
+  <DestFile>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/bin/DesktopGL/Content/animations.xnb</DestFile>
+  <DestTime>2024-02-25T12:41:19.727805+08:00</DestTime>
+  <Importer>SpriteFactoryContentImporter</Importer>
+  <ImporterTime>2023-09-15T01:15:36+08:00</ImporterTime>
+  <Processor>SpriteFactoryContentProcessor</Processor>
+  <ProcessorTime>2023-09-15T01:15:36+08:00</ProcessorTime>
+  <Parameters>
+    <Key>ContentType</Key>
+    <Value>MonoGame.Extended MonoGame.Extended.Animations.SpriteFactory.SpriteFactoryFileReader, MonoGame.Extended.Animations</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

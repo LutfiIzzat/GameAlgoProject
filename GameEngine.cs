@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Renderers;
-using PacmanGame;
+using ZombieGame;
 using System;
 using System.Diagnostics;
 
@@ -48,6 +48,8 @@ namespace GameAlgoProject
             // Construct game objects here.           
             // CreatePacmanWorld();
             PacmanScene scene = new PacmanScene();
+            EnemyFactory enemyFactory = new EnemyFactory();
+            Enemy randomEnemy = (Enemy)enemyFactory.CreateRandomEnemy();
 
             // Initialize all game objects
             GameObjectCollection.Initialize();
