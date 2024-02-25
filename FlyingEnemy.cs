@@ -10,41 +10,34 @@ using MonoGame.Extended.Content;
 
 namespace ZombieGame
 {
-    public class FlyingEnemy : Enemy
+    public class FlyingEnemy : Zombie
     {
         private Player _player;
         public Random random = new Random();
+        public string enemyName;
 
-        public FlyingEnemy(string name) : base(name) 
-        { 
+        public FlyingEnemy(Player player, string name) : base(player, name) 
+        {
+            _player = player;
+            ObjectName = name;
         }
         public override void Initialize()
         {
             LoadContent();
-            Speed = 0f;
+            Origin = new(Texture.Width/2, Texture.Height/2);
             MaxSpeed = 100.0f;
             Health = 1f;
         }
 
         protected override void LoadContent()
         {
-            Texture = _game.Content.Load<Texture2D>("pacman-sprites");
+            Texture = _game.Content.Load<Texture2D>("Zombie");
 
-            SpriteSheet = _game.Content.Load<SpriteSheet>("animations.sf", new JsonContentLoader());
         }
 
         public override void Start()
         {
-            _player = (Player)GameObjectCollection.FindByName("Player");
-            GameMap gameMap = (GameMap)GameObjectCollection.FindByName("GameMap");
-            tiledMap = gameMap.TiledMap;
-            tileGraph = gameMap.TileGraph;
-
-            Animation = new AnimatedSprite(SpriteSheet);
-            Animation.OriginNormalized = Vector2.Zero;
-            Animation.Play("ghostEvade");
-            Animation.Update(0);
-            Position = new Vector2(0, 0);
+            base.Start();
         }
 
         public override void Update()

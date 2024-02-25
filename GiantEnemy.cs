@@ -10,41 +10,41 @@ using MonoGame.Extended.Content;
 
 namespace ZombieGame
 {
-    public class GiantEnemy : Enemy
+    public class GiantEnemy : Zombie
     {
-        public GiantEnemy(string name) : base(name) 
+        Player _player;
+        public GiantEnemy(Player player, string name) : base(player, name) 
         {
+            _player = player;
+            ObjectName = name;
         }
 
         public override void Initialize()
         {
             LoadContent();
-            Speed = 0f;
+            Origin = new(Texture.Width/2, Texture.Height/2);
             MaxSpeed = 50.0f;
             Health = 5f;
         }
 
         protected override void LoadContent()
         {
-            Texture = _game.Content.Load<Texture2D>("pacman-sprites");
+            Texture = _game.Content.Load<Texture2D>("Zombie");
 
-            SpriteSheet = _game.Content.Load<SpriteSheet>("animations.sf", new JsonContentLoader());
+            //SpriteSheet = _game.Content.Load<SpriteSheet>("animations.sf", new JsonContentLoader());
         }
 
         public override void Start()
         {
-            GameMap gameMap = (GameMap)GameObjectCollection.FindByName("GameMap");
-            tiledMap = gameMap.TiledMap;
-            tileGraph = gameMap.TileGraph;
+            //GameMap gameMap = (GameMap)GameObjectCollection.FindByName("GameMap");
+            //_tiledMap = gameMap.TiledMap;
+            //_tileGraph = gameMap.TileGraph;
 
-            Animation = new AnimatedSprite(SpriteSheet);
-            Animation.OriginNormalized = Vector2.Zero;
-            Animation.Play("giantEnemy");
-            Animation.Update(0);
-            Tile startTile = new Tile(gameMap.StartColumn, gameMap.StartRow);
-            Position = Tile.ToPosition(startTile, tiledMap.TileWidth, tiledMap.TileHeight);
-            FSM = new NavigationHCFSM(_game, this, tiledMap, tileGraph);
-            FSM.Initialize();
+            //Animation = new AnimatedSprite(SpriteSheet);
+            //Animation.OriginNormalized = Vector2.Zero;
+            //Animation.Play("giantEnemy");
+            //Animation.Update(0);
+            base.Start();
         }
     }
 }

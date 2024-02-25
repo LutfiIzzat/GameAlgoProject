@@ -20,6 +20,7 @@ using System.Collections;
 using MonoGame.Extended.Timers;
 using System.Diagnostics;
 using System.Reflection.Metadata;
+using System.Reflection;
 
 namespace ZombieGame
 {
@@ -41,6 +42,9 @@ namespace ZombieGame
         public Texture2D Texture;
         public SpriteSheet SpriteSheet;
         public AnimatedSprite Animation;
+        public int firingRate = 5;
+        public const float CoolingTime = 2f;
+        public float LastFiredTime = 0f;
 
         // Visual appearance
         private Rectangle _ghostRect;
@@ -66,6 +70,7 @@ namespace ZombieGame
             scale = 0.3f;
 
             Origin = new (Texture.Width/2, Texture.Height/2);
+            LastFiredTime = 0f;
         }
 
         protected override void LoadContent()
@@ -99,6 +104,12 @@ namespace ZombieGame
 
         }
 
+        public  Vector2 GetPosition()
+        {
+            return Position;
+        }
+
+
         
 
         public override void Update()
@@ -107,35 +118,33 @@ namespace ZombieGame
 
             MouseHandler();
 
-            // Move the player based on WASD keys
+            
             Vector2 movement = Vector2.Zero;
             if (keyboardState.IsKeyDown(Keys.W))
             {
-                movement.Y -= 1; // Move up
+                movement.Y -= 1; 
             }
             if (keyboardState.IsKeyDown(Keys.S))
             {
-                movement.Y += 1; // Move down
+                movement.Y += 1; 
             }
             if (keyboardState.IsKeyDown(Keys.A))
             {
-                movement.X -= 1; // Move left
+                movement.X -= 1; 
             }
             if (keyboardState.IsKeyDown(Keys.D))
             {
-                movement.X += 1; // Move right
+                movement.X += 1; 
             }
 
-            // Normalize the movement vector if the player is moving diagonally
             if (movement != Vector2.Zero)
             {
                 movement.Normalize();
             }
 
-            // Calculate the target position based on the movement
             Vector2 targetPosition = Position + movement * MaxSpeed * ScalableGameTime.DeltaTime;
 
-            // Calculate the adjusted bounding box
+            
             Rectangle playerBounds = new Rectangle(
                 (int)(targetPosition.X - Texture.Width * scale / 2),
                 (int)(targetPosition.Y - Texture.Height * scale / 2),
@@ -150,18 +159,17 @@ namespace ZombieGame
             ushort endX = (ushort)((playerBounds.X + playerBounds.Width) / _tiledMap.TileWidth);
             if (endX >= _tiledMap.Width)
             {
-                endX = (ushort)(_tiledMap.Width - 1); // Clamp to the maximum value
+                endX = (ushort)(_tiledMap.Width - 1); 
             }
 
             ushort endY = (ushort)((playerBounds.Y + playerBounds.Height) / _tiledMap.TileHeight);
             if (endY >= _tiledMap.Height)
             {
-                endY = (ushort)(_tiledMap.Height - 1); // Clamp to the maximum value
+                endY = (ushort)(_tiledMap.Height - 1); 
             }
 
             TiledMapTile? tile = null;
 
-            // Check for collision with each wall tile in the range
             for (ushort y = startY; y <= endY; y++)
             {
                 for (ushort x = startX; x <= endX; x++)
@@ -176,15 +184,12 @@ namespace ZombieGame
             }
 
 
-            // If no collision detected, update the player's position
+            
             Position = targetPosition;
             Debug.WriteLine("Not colliding");
 
-
-
-            // Update the player's position
         }
-
+    
         
         public void MouseHandler()
         {
@@ -200,15 +205,18 @@ namespace ZombieGame
 
         public void ShootHandler()
         {
+            if (LastFiredTime + CoolingTime <= ScalableGameTime.RealTime)
+            {
+                for(int i=0; i < firingRate; i++)
+                {
+                    Bullet bullet = new(this);
+                    bullet.Initialize();
+                    bullet.Position = Position;
+                }
 
-            Bullet bullet = new(this);
-            bullet.Initialize();
-            bullet.Position = Position;
-
+                LastFiredTime = ScalableGameTime.RealTime;
+            }
         }
-
-
-
 
 
         public override void Draw()

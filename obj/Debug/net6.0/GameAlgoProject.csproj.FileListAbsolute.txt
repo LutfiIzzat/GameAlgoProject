@@ -46,3 +46,4 @@ C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\C
 C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Soldier.xnb
 C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\survivor-idle_handgun_0.xnb
 C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Top_Down_Survivor\handgun\idle\survivor-idle_handgun_0.xnb
+C:\Users\Pro\Desktop\mmls\Y3S1\Game Algorithm\GameAlgoProject\bin\Debug\net6.0\Content\Zombie.xnb

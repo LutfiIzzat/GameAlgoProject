@@ -7,6 +7,7 @@ using ZombieGame;
 using System;
 using System.Diagnostics;
 using System.Xml.Linq;
+using System.Numerics;
 
 namespace GameAlgoProject
 {
@@ -18,12 +19,13 @@ namespace GameAlgoProject
 
         // Engine Related
         public CollisionEngine CollisionEngine;
-        public EnemyFactory EnemyFactory;
+
         public Random Random;
         private int _enemyCount;
         private float _spawnTimer;
         private const float SpawnInterval = 3f;
         private const int MaxEnemies = 20;
+        //public Player player;
 
         public GameEngine()
         {
@@ -40,7 +42,6 @@ namespace GameAlgoProject
 
             // Initialize Scalable Game Time
             ScalableGameTime.TimeScale = 1f;
-            EnemyFactory = new EnemyFactory();
         } 
 
         protected override void Initialize()
@@ -55,8 +56,9 @@ namespace GameAlgoProject
             // Construct game objects here.           
             // CreatePacmanWorld();
             PacmanScene scene = new PacmanScene();
-            Player player = new Player();
- 
+            //Player player = new Player();
+            //Zombie zombie = new Zombie(player, "normalZombie");
+            //EnemyFactory enemyFactory = new EnemyFactory(player);
             _enemyCount = 0;
             _spawnTimer = 0f;
             // Initialize all game objects
@@ -81,13 +83,7 @@ namespace GameAlgoProject
                 Exit();
 
             _spawnTimer += ScalableGameTime.DeltaTime;
-            if (_enemyCount < 20 && _spawnTimer >= SpawnInterval)
-            {
-                _spawnTimer = 0f;
-                Enemy randomEnemy = (Enemy)EnemyFactory.CreateRandomEnemy();
-                _enemyCount++;
-                GameObjectCollection.Add(randomEnemy);
-            }
+
             // Update Game Objects
             GameObjectCollection.Update();
 

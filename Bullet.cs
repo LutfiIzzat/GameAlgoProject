@@ -4,13 +4,14 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ZombieGame
 {
-    public class Bullet : GameObject
+    public class Bullet : GameObject, ICollidable
     {
 
         public Texture2D Texture;
@@ -21,6 +22,7 @@ namespace ZombieGame
         public Vector2 offset;
         public Vector2 mousePosition;
         private Vector2 direction;
+        private Rectangle _bound;
 
         public Bullet(GameObject parentObject) : base()
         {
@@ -31,12 +33,17 @@ namespace ZombieGame
         {
             LoadContent();
             Origin = new(Texture.Width / 2f, Texture.Height / 2f);
+            Orientation = ParentObject.Orientation;
+            direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
 
-            Vector2 mousePosition = Mouse.GetState().Position.ToVector2();
+/*            Vector2 mousePosition = Mouse.GetState().Position.ToVector2();
             Vector2 offset = mousePosition - Position;
-            Orientation = (float)Math.Atan2(offset.Y, offset.X);
+            Orientation = (float)Math.Atan2(offset.Y, offset.X);*/
 
             Speed = 100f;
+            _bound.Width = Texture.Width;
+            _bound.Height = Texture.Height;
+            _game.CollisionEngine.Listen(typeof(Bullet), typeof(Zombie), CollisionEngine.AABB);
         }
 
 
@@ -47,10 +54,12 @@ namespace ZombieGame
 
         public override void Update()
         {
-            Vector2 direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
+            //direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
             Velocity = direction * Speed;
             Position += Velocity * ScalableGameTime.DeltaTime;
+           
         }
+
 
         public override void Draw()
         {
@@ -61,5 +70,23 @@ namespace ZombieGame
 
             _game.SpriteBatch.End();
         }
+
+        public string GetGroupName()
+        {
+            return this.GetType().Name;
+        }
+
+        public Rectangle GetBound()
+        {
+            return _bound;
+        }
+
+        //public void OnCollision(CollisionInfo collisionInfo)
+        //{
+        //    if (collisionInfo.Other is Zombie)
+        //    {
+        //        GameObjectCollection.DeInstantiate(this);
+        //    }
+        //}
     }
 }
