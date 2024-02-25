@@ -18,14 +18,16 @@ namespace ZombieGame
         private int _giantEnemyCount;
         private int _flyingEnemyCount;
         private Player _player;
+        public GameMap gameMap;
 
-        public EnemyFactory(Player player) 
+        public EnemyFactory(Player player, GameMap map) 
         {
             _player = player;
             _random = new Random();
             _normalEnemyCount = 0;
             _giantEnemyCount = 0;
             _flyingEnemyCount = 0;
+            gameMap = map;
             
         }
 

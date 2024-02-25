@@ -39,6 +39,7 @@ namespace ZombieGame
         public float Health;
         public string ObjectName;
         private Rectangle _bound;
+        public GameMap gameMap;
 
         // Visual appearance
         private Rectangle _ghostRect;
@@ -50,7 +51,8 @@ namespace ZombieGame
         int waypointIndex;
         float moveTimer;
         Player _player;
-    
+        public float scale;
+
         public Zombie() : base()
         {
         }
@@ -61,13 +63,22 @@ namespace ZombieGame
             ObjectName = name;
         }
 
+        public Zombie(Player player, string name, GameMap map) : base()
+        {
+            _player = player;
+            ObjectName = name;
+            gameMap = map;
+        }
+
         public override void Initialize()
         {
             LoadContent();
-            Origin = new(Texture.Width/2, Texture.Height/2);
+            scale = 0.25f;
+            Origin = new(Texture.Width / 2 * scale, Texture.Height / 2 * scale);
             MaxSpeed = 100.0f;
-            _bound.Width = Texture.Width;
-            _bound.Height = Texture.Height;
+            _bound.Width = (int)(Texture.Width * scale);
+            _bound.Height = (int)(Texture.Height * scale);
+            _bound.Location = Position.ToPoint();
             Health = 3f;
         }
 
@@ -92,6 +103,7 @@ namespace ZombieGame
         public override void Start()
         {
             GameMap gameMap = (GameMap)GameObjectCollection.FindByName("GameMap");
+            Debug.WriteLine("gay");
             _tiledMap = gameMap.TiledMap;
             _tileGraph = gameMap.TileGraph;
 
@@ -182,7 +194,7 @@ namespace ZombieGame
         public override void Update()
         {
             MouseState mouse = Mouse.GetState();
-
+            
             int tileWidth = _tiledMap.TileWidth;
             int tileHeight = _tiledMap.TileHeight;
 
@@ -325,44 +337,10 @@ namespace ZombieGame
 
         public override void Draw()
         {
-            // Draw the ghost at his position, extracting only the ghost image from the texture
             _game.SpriteBatch.Begin();
 
-            /********************************************************************************
-                PROBLEM 1: Fill in the blanks based on the logic below:
-
-                            IF (1) The destination tile is in the tile graph.
-                                (2) The destination tile is not the source tile.
-
-                HOWTOSOLVE : 1. Copy the code below.
-                                2. Paste it below this block comment.
-                                3. Fill in the blanks.
-
-                // The code below should be commented when attempting Problem 4
-                _game.SpriteBatch.Draw(________, Position, ________, Color.White, Orientation, Origin, Scale, SpriteEffects.None, 0f);
-
-            ********************************************************************************/
-
             _game.SpriteBatch.Draw(Texture, Position, null, Color.White, Orientation, Origin, 0.25f, SpriteEffects.None, 0f);
-
-
-            /********************************************************************************
-                PROBLEM 4(E): Fill in the blanks based on the logic below:
-
-                            IF (1) The destination tile is in the tile graph.
-                                (2) The destination tile is not the source tile.
-
-                HOWTOSOLVE : 1. Copy the code below.
-                                2. Paste it below this block comment.
-                                3. Fill in the blanks.
-
-                // The code below should be commented when attempting Problem 1 to 3 and uncommented when attempting Problem 4
-                // _game.SpriteBatch.Draw(________, Position, ________, Scale);
-
-            ********************************************************************************/
-
-
-
+            
             _game.SpriteBatch.End();
         }
 
@@ -394,23 +372,24 @@ namespace ZombieGame
 
         public Rectangle GetBound()
         {
+            _bound.Location = (Position - Origin).ToPoint();
             return _bound;
         }
 
-        //public void OnCollision(CollisionInfo collisionInfo)
-        //{
-        //    if (collisionInfo.Other is Bullet)
-        //    {
-        //        if (Health > 0)
-        //        {
-        //            Health -= 1;
-        //        }
-        //        else if (Health <= 0)
-        //        {
-        //            GameObjectCollection.DeInstantiate(this);
-        //        }
-        //    }
-        //}
+        public void OnCollision(CollisionInfo collisionInfo)
+        {
+            if (collisionInfo.Other is Bullet)
+            {
+                if (Health > 0)
+                {
+                    Health -= 1;
+                }
+                else if (Health <= 0)
+                {
+                    GameObjectCollection.DeInstantiate(this);
+                }
+            }
+        }
     }
 }
 

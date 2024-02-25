@@ -24,7 +24,7 @@ using System.Reflection;
 
 namespace ZombieGame
 {
-    public class Player : GameObject
+    public class Player : GameObject, ICollidable
     {
         // FSM for navigation
         enum NavigationState { STOP, MOVING };
@@ -45,6 +45,10 @@ namespace ZombieGame
         public int firingRate = 5;
         public const float CoolingTime = 2f;
         public float LastFiredTime = 0f;
+        public float AttackedInterval = 1f;
+        public float AttackCooldown = 1f;
+        private Rectangle _bound;
+        public float Health;
 
         // Visual appearance
         private Rectangle _ghostRect;
@@ -68,9 +72,14 @@ namespace ZombieGame
 
             MaxSpeed = 100.0f;
             scale = 0.3f;
-
+            Health = 5f;
             Origin = new (Texture.Width/2, Texture.Height/2);
             LastFiredTime = 0f;
+            _bound.Width = (int)(Texture.Width * 0.25);
+            _bound.Height = (int)(Texture.Height * 0.25);
+            _bound.Location = Position.ToPoint();
+            _game.CollisionEngine.Listen(typeof(Zombie), typeof(Player), CollisionEngine.AABB);
+
         }
 
         protected override void LoadContent()
@@ -118,7 +127,7 @@ namespace ZombieGame
 
             MouseHandler();
 
-            
+            AttackCooldown -= ScalableGameTime.DeltaTime;
             Vector2 movement = Vector2.Zero;
             if (keyboardState.IsKeyDown(Keys.W))
             {
@@ -177,7 +186,7 @@ namespace ZombieGame
                     if (WallLayer.TryGetTile(x, y, out tile) && !tile.Value.IsBlank)
                     {
                         // If there's a collision, prevent movement and exit the loop
-                        Debug.WriteLine("Colliding with wall tile at position: " + x + ", " + y);
+                        //Debug.WriteLine("Colliding with wall tile at position: " + x + ", " + y);
                         return;
                     }
                 }
@@ -186,7 +195,7 @@ namespace ZombieGame
 
             
             Position = targetPosition;
-            Debug.WriteLine("Not colliding");
+            //Debug.WriteLine("Not colliding");
 
         }
     
@@ -207,16 +216,13 @@ namespace ZombieGame
         {
             if (LastFiredTime + CoolingTime <= ScalableGameTime.RealTime)
             {
-                for(int i=0; i < firingRate; i++)
-                {
-                    Bullet bullet = new(this);
-                    bullet.Initialize();
-                    bullet.Position = Position;
-                }
+                Bullet bullet = new(this);
+                bullet.Initialize();
+                bullet.Position = Position;
 
                 LastFiredTime = ScalableGameTime.RealTime;
             }
-        }
+}
 
 
         public override void Draw()
@@ -228,6 +234,31 @@ namespace ZombieGame
 
             _game.SpriteBatch.End();
         }
+
+        public string GetGroupName()
+        {
+            return this.GetType().Name;
+        }
+
+        public Rectangle GetBound()
+        {
+            _bound.Location = (Position - Origin).ToPoint();
+            return _bound;
+        }
+
+        public void OnCollision(CollisionInfo collisionInfo)
+        {
+            if (collisionInfo.Other is Zombie)
+            {
+                if (AttackCooldown <= 0)
+                {
+                    Health -= 1;
+                    AttackCooldown = AttackedInterval;
+                }
+            }
+        }
+
+
     }
 }
 

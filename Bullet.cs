@@ -23,6 +23,7 @@ namespace ZombieGame
         public Vector2 mousePosition;
         private Vector2 direction;
         private Rectangle _bound;
+        public float scale;
 
         public Bullet(GameObject parentObject) : base()
         {
@@ -32,18 +33,27 @@ namespace ZombieGame
         public override void Initialize()
         {
             LoadContent();
-            Origin = new(Texture.Width / 2f, Texture.Height / 2f);
+            scale = 0.1f;
+            Origin = new(Texture.Width / 2f * scale, Texture.Height / 2f * scale);
             Orientation = ParentObject.Orientation;
             direction = new((float)Math.Cos(Orientation), (float)Math.Sin(Orientation));
 
-/*            Vector2 mousePosition = Mouse.GetState().Position.ToVector2();
-            Vector2 offset = mousePosition - Position;
-            Orientation = (float)Math.Atan2(offset.Y, offset.X);*/
+
+
+            /*            Vector2 mousePosition = Mouse.GetState().Position.ToVector2();
+                        Vector2 offset = mousePosition - Position;
+                        Orientation = (float)Math.Atan2(offset.Y, offset.X);*/
 
             Speed = 100f;
-            _bound.Width = Texture.Width;
-            _bound.Height = Texture.Height;
+            _bound.Width = (int)(Texture.Width * scale);
+            _bound.Height = (int)(Texture.Height * scale);
+            _bound.Location = Position.ToPoint();
+
+
             _game.CollisionEngine.Listen(typeof(Bullet), typeof(Zombie), CollisionEngine.AABB);
+            _game.CollisionEngine.Listen(typeof(Bullet), typeof(FlyingEnemy), CollisionEngine.AABB);
+            _game.CollisionEngine.Listen(typeof(Bullet), typeof(GiantEnemy), CollisionEngine.AABB);
+
         }
 
 
@@ -65,7 +75,7 @@ namespace ZombieGame
         {
             _game.SpriteBatch.Begin();
             _game.SpriteBatch.Draw(Texture, Position, null, Color.White,
-                                    Orientation, Origin, 0.1f, SpriteEffects.None,
+                                    Orientation, Origin, scale, SpriteEffects.None,
                                     0f);
 
             _game.SpriteBatch.End();
@@ -78,15 +88,16 @@ namespace ZombieGame
 
         public Rectangle GetBound()
         {
+            _bound.Location = (Position - Origin).ToPoint();
             return _bound;
         }
 
-        //public void OnCollision(CollisionInfo collisionInfo)
-        //{
-        //    if (collisionInfo.Other is Zombie)
-        //    {
-        //        GameObjectCollection.DeInstantiate(this);
-        //    }
-        //}
+        public void OnCollision(CollisionInfo collisionInfo)
+        {
+           if (collisionInfo.Other is Zombie)
+            {
+                GameObjectCollection.DeInstantiate(this);
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/Assignment2.tmx</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/bullet1.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/graph-directions.png</File>
+    <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/lifebar_16x16.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-sprites.png</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-tileset.tsx</File>
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/pacman-wall-24.png</File>
@@ -19,6 +20,7 @@
     <File>C:/Users/Pro/Desktop/mmls/Y3S1/Game Algorithm/GameAlgoProject/Content/Zombie.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

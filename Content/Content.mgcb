@@ -19,11 +19,6 @@
 /processor:TiledMapProcessor
 /build:Assignment2.tmx
 
-#begin Assignment2.tmx
-/importer:TiledMapImporter
-/processor:TiledMapProcessor
-/build:Assignment2.tmx
-
 #begin bullet1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -47,6 +42,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:graph-directions.png
+
+#begin lifebar_16x16.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:lifebar_16x16.png
 
 #begin pacman-sprites.png
 /importer:TextureImporter
@@ -93,11 +100,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:path.png
-
-#begin Project.tmx
-/importer:TiledMapImporter
-/processor:TiledMapProcessor
-/build:Project.tmx
 
 #begin Project.tmx
 /importer:TiledMapImporter
